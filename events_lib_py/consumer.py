@@ -123,6 +123,7 @@ class _KafkaConsumerHandlerMixin:
         key = msg.key().decode()
         topic = msg.topic()
         LOGGER.info("msg=%s key=%s", "Processing message", key)
+        LOGGER.info("skip_unmarshal_topics_event_name_map=%s", self._config.skip_unmarshal_topics_event_name_map)
         
         try:
             if self._config.skip_unmarshal_topics_event_name_map and topic in self._config.skip_unmarshal_topics_event_name_map:
